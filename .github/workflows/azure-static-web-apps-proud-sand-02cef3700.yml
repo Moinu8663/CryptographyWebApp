@@ -85,7 +85,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
           action: "upload"
-
+          app_location: "./FrontendApp"
           app_location: "dist/FrontendApp/browser"
 
           skip_app_build: true
