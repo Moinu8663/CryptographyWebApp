@@ -1,0 +1,158 @@
+<div class="page">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="brand">
+      <div class="logo"><mat-icon>api</mat-icon></div>
+      <div>
+        <h1>API Tester</h1>
+        <p>Build and test HTTP requests</p>
+      </div>
+    </div>
+
+    <!-- URL Bar -->
+    <div class="url-bar">
+      <mat-select [(ngModel)]="method" [ngModelOptions]="{standalone:true}"
+                  class="method-select" [style.color]="methodColor">
+        @for (m of methods; track m) {
+          <mat-option [value]="m">{{ m }}</mat-option>
+        }
+      </mat-select>
+
+      <input class="url-input" [ngModel]="url()" (ngModelChange)="url.set($event)"
+             [ngModelOptions]="{standalone:true}" placeholder="https://api.example.com/endpoint" />
+
+      <button class="send-btn" (click)="send()" [disabled]="loading() || !url()">
+        @if (loading()) { <span class="spinner"></span> }
+        @else { <mat-icon>send</mat-icon> }
+        Send
+      </button>
+    </div>
+  </div>
+
+  <!-- Split Panels -->
+  <div class="split">
+
+    <!-- LEFT: Request -->
+    <div class="panel request-panel">
+      <div class="panel-header">
+        <mat-icon>edit_note</mat-icon> Request
+      </div>
+
+      <mat-tab-group class="req-tabs" animationDuration="200ms">
+
+        <!-- Headers -->
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">http</mat-icon> Headers
+            <span class="tab-badge">{{ headers.length }}</span>
+          </ng-template>
+          <div class="kv-section">
+            <div class="kv-header-row">
+              <span class="kv-col-label">Key</span>
+              <span class="kv-col-label">Value</span>
+              <span style="width:32px"></span>
+            </div>
+            @for (h of headers; track $index) {
+              <div class="kv-row" [class.disabled-row]="!h.enabled">
+                <input type="checkbox" [(ngModel)]="h.enabled" [ngModelOptions]="{standalone:true}" />
+                <input class="kv-input" [(ngModel)]="h.key"   [ngModelOptions]="{standalone:true}" placeholder="Key" />
+                <input class="kv-input" [(ngModel)]="h.value" [ngModelOptions]="{standalone:true}" placeholder="Value" />
+                <button mat-icon-button (click)="removeHeader($index)" matTooltip="Remove">
+                  <mat-icon>delete_outline</mat-icon>
+                </button>
+              </div>
+            }
+            <button class="add-btn" (click)="addHeader()">
+              <mat-icon>add</mat-icon> Add Header
+            </button>
+          </div>
+        </mat-tab>
+
+        <!-- Params -->
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">tune</mat-icon> Params
+            <span class="tab-badge">{{ params.length }}</span>
+          </ng-template>
+          <div class="kv-section">
+            <div class="kv-header-row">
+              <span class="kv-col-label">Key</span>
+              <span class="kv-col-label">Value</span>
+              <span style="width:32px"></span>
+            </div>
+            @for (p of params; track $index) {
+              <div class="kv-row" [class.disabled-row]="!p.enabled">
+                <input type="checkbox" [(ngModel)]="p.enabled" [ngModelOptions]="{standalone:true}" />
+                <input class="kv-input" [(ngModel)]="p.key"   [ngModelOptions]="{standalone:true}" placeholder="Key" />
+                <input class="kv-input" [(ngModel)]="p.value" [ngModelOptions]="{standalone:true}" placeholder="Value" />
+                <button mat-icon-button (click)="removeParam($index)" matTooltip="Remove">
+                  <mat-icon>delete_outline</mat-icon>
+                </button>
+              </div>
+            }
+            <button class="add-btn" (click)="addParam()">
+              <mat-icon>add</mat-icon> Add Param
+            </button>
+          </div>
+        </mat-tab>
+
+        <!-- Body -->
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">data_object</mat-icon> Body
+          </ng-template>
+          <div class="body-section">
+            <div class="body-toolbar">
+              <span class="body-type-badge">JSON</span>
+            </div>
+            <textarea class="body-editor"
+                      [ngModel]="body()" (ngModelChange)="body.set($event)"
+                      [ngModelOptions]="{standalone:true}"
+                      placeholder='{"key": "value"}'></textarea>
+          </div>
+        </mat-tab>
+
+      </mat-tab-group>
+    </div>
+
+    <!-- Divider -->
+    <div class="split-divider"></div>
+
+    <!-- RIGHT: Response -->
+    <div class="panel response-panel">
+      <div class="panel-header">
+        <mat-icon>output</mat-icon> Response
+        @if (response()) {
+          <div class="res-meta">
+            <span class="status-badge" [class]="statusClass">
+              {{ response()!.status }} {{ response()!.statusText }}
+            </span>
+            <span class="meta-chip"><mat-icon>schedule</mat-icon>{{ response()!.time }} ms</span>
+            <span class="meta-chip"><mat-icon>data_usage</mat-icon>{{ response()!.size }}</span>
+          </div>
+          <button mat-icon-button class="copy-res-btn" (click)="copy(response()!.body)" matTooltip="Copy">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        }
+      </div>
+
+      <div class="response-body-wrap">
+        @if (loading()) {
+          <div class="res-loading">
+            <span class="spinner lg"></span>
+            <span>Waiting for response...</span>
+          </div>
+        } @else if (response()) {
+          <pre class="response-body">{{ response()!.body }}</pre>
+        } @else {
+          <div class="empty-response">
+            <mat-icon>rocket_launch</mat-icon>
+            <span>Send a request to see the response</span>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>

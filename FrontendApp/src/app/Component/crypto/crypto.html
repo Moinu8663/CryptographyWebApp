@@ -1,0 +1,173 @@
+<div class="page">
+  <div class="card">
+
+    <!-- Header -->
+    <div class="card-header">
+      <div class="logo">
+        <mat-icon>lock</mat-icon>
+      </div>
+      <div>
+        <h1>CryptoVault</h1>
+        <p>AES Double Encryption &amp; Decryption</p>
+      </div>
+    </div>
+
+    <!-- Master Key -->
+    <div class="key-section">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>
+          <mat-icon class="label-icon">vpn_key</mat-icon>
+          Master Key
+        </mat-label>
+        <input matInput [type]="showKey() ? 'text' : 'password'"
+               [ngModel]="masterKey()" (ngModelChange)="masterKey.set($event)"
+               [ngModelOptions]="{standalone: true}" placeholder="Enter your secret master key" />
+        <button mat-icon-button matSuffix (click)="showKey.set(!showKey())" type="button"
+                [matTooltip]="showKey() ? 'Hide key' : 'Show key'">
+          <mat-icon>{{ showKey() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <!-- Error -->
+    @if (error()) {
+      <div class="error-banner">
+        <mat-icon>error_outline</mat-icon>
+        <span>{{ error() }}</span>
+      </div>
+    }
+
+    <!-- Tabs -->
+    <mat-tab-group animationDuration="300ms" class="tabs">
+
+      <!-- Encrypt -->
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="tab-icon">enhanced_encryption</mat-icon>
+          Encrypt
+        </ng-template>
+        <div class="tab-content">
+          <div class="row">
+
+            <!-- Input -->
+            <div class="col">
+              <div class="col-label">Input</div>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Plain Text / JSON</mat-label>
+                <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="3" cdkAutosizeMaxRows="3"
+                          [ngModel]="plainText()" (ngModelChange)="plainText.set($event)"
+                          [ngModelOptions]="{standalone: true}"
+                          placeholder='e.g. {"name":"Alice"}'></textarea>
+              </mat-form-field>
+              <div class="actions">
+                <button mat-stroked-button (click)="clear('enc')" [disabled]="loading()">
+                  <mat-icon>clear_all</mat-icon> Clear
+                </button>
+                <button mat-flat-button class="primary-btn" (click)="encrypt()"
+                        [disabled]="loading() || !plainText() || !masterKey()">
+                  @if (loading()) { <mat-spinner diameter="18" class="btn-spinner" /> }
+                  @else { <mat-icon>lock</mat-icon> }
+                  Encrypt
+                </button>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="col-divider">
+              <div class="divider-line"></div>
+              <mat-icon class="divider-icon">arrow_forward</mat-icon>
+              <div class="divider-line"></div>
+            </div>
+
+            <!-- Output -->
+            <div class="col">
+              <div class="col-label">Output</div>
+              <div class="output-box" [class.empty]="!encResult()">
+                @if (encResult()) {
+                  <div class="result-header">
+                    <span><mat-icon>check_circle</mat-icon> Encrypted</span>
+                    <button mat-icon-button (click)="copy(encResult())" matTooltip="Copy">
+                      <mat-icon>content_copy</mat-icon>
+                    </button>
+                  </div>
+                  <pre class="result-text">{{ encResult() }}</pre>
+                } @else {
+                  <div class="empty-state">
+                    <mat-icon>lock_outline</mat-icon>
+                    <span>Encrypted output will appear here</span>
+                  </div>
+                }
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Decrypt -->
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="tab-icon">no_encryption</mat-icon>
+          Decrypt
+        </ng-template>
+        <div class="tab-content">
+          <div class="row">
+
+            <!-- Input -->
+            <div class="col">
+              <div class="col-label">Input</div>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Cipher Text</mat-label>
+                <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="3" cdkAutosizeMaxRows="3"
+                          [ngModel]="cipherText()" (ngModelChange)="cipherText.set($event)"
+                          [ngModelOptions]="{standalone: true}"
+                          placeholder="Paste encrypted string here"></textarea>
+              </mat-form-field>
+              <div class="actions">
+                <button mat-stroked-button (click)="clear('dec')" [disabled]="loading()">
+                  <mat-icon>clear_all</mat-icon> Clear
+                </button>
+                <button mat-flat-button class="primary-btn" (click)="decrypt()"
+                        [disabled]="loading() || !cipherText() || !masterKey()">
+                  @if (loading()) { <mat-spinner diameter="18" class="btn-spinner" /> }
+                  @else { <mat-icon>lock_open</mat-icon> }
+                  Decrypt
+                </button>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="col-divider">
+              <div class="divider-line"></div>
+              <mat-icon class="divider-icon">arrow_forward</mat-icon>
+              <div class="divider-line"></div>
+            </div>
+
+            <!-- Output -->
+            <div class="col">
+              <div class="col-label">Output</div>
+              <div class="output-box" [class.empty]="!decResult()">
+                @if (decResult()) {
+                  <div class="result-header">
+                    <span><mat-icon>check_circle</mat-icon> Decrypted</span>
+                    <button mat-icon-button (click)="copy(decResult())" matTooltip="Copy">
+                      <mat-icon>content_copy</mat-icon>
+                    </button>
+                  </div>
+                  <pre class="result-text">{{ decResult() }}</pre>
+                } @else {
+                  <div class="empty-state">
+                    <mat-icon>lock_open</mat-icon>
+                    <span>Decrypted output will appear here</span>
+                  </div>
+                }
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "/backend-api/**": {
+    "target": "https://localhost:7253",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/backend-api": "/api"
+    }
+  }
+}
+

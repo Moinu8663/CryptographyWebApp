@@ -1,0 +1,134 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|c:\\users\\as\\projects\\cryptography\\cryptographyapp\\backendapi\\backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|c:\\users\\as\\projects\\cryptography\\cryptographyapp\\backendapi\\backendapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|c:\\users\\as\\projects\\cryptography\\cryptographyapp\\backendapi\\backendapi\\controllers\\cryptocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\cryptocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|c:\\users\\as\\projects\\cryptography\\cryptographyapp\\backendapi\\backendapi\\models\\decryptmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\models\\decryptmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|c:\\users\\as\\projects\\cryptography\\cryptographyapp\\backendapi\\backendapi\\helper\\custommiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\helper\\custommiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|c:\\users\\as\\projects\\cryptography\\cryptographyapp\\backendapi\\backendapi\\repository\\icryptoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\repository\\icryptoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|c:\\users\\as\\projects\\cryptography\\cryptographyapp\\backendapi\\backendapi\\service\\cryptoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{494E2E43-757D-2D5F-1B51-BF2742664A95}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\service\\cryptoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "BackendApi\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Properties\\launchSettings.json",
+              "RelativeToolTip": "BackendApi\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-27T13:27:54.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Program.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Program.cs",
+              "ToolTip": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Program.cs",
+              "RelativeToolTip": "BackendApi\\Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAACEAAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T02:43:07.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CryptoController.cs",
+              "DocumentMoniker": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Controllers\\CryptoController.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Controllers\\CryptoController.cs",
+              "ToolTip": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Controllers\\CryptoController.cs",
+              "RelativeToolTip": "BackendApi\\Controllers\\CryptoController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAA8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T02:32:47.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DecryptModels.cs",
+              "DocumentMoniker": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Models\\DecryptModels.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Models\\DecryptModels.cs",
+              "ToolTip": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Models\\DecryptModels.cs",
+              "RelativeToolTip": "BackendApi\\Models\\DecryptModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T02:29:38.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CustomMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Helper\\CustomMiddleware.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Helper\\CustomMiddleware.cs",
+              "ToolTip": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Helper\\CustomMiddleware.cs",
+              "RelativeToolTip": "BackendApi\\Helper\\CustomMiddleware.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T02:23:53.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ICryptoService.cs",
+              "DocumentMoniker": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Repository\\ICryptoService.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Repository\\ICryptoService.cs",
+              "ToolTip": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Repository\\ICryptoService.cs",
+              "RelativeToolTip": "BackendApi\\Repository\\ICryptoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T02:23:25.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CryptoService.cs",
+              "DocumentMoniker": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Service\\CryptoService.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Service\\CryptoService.cs",
+              "ToolTip": "C:\\Users\\as\\Projects\\Cryptography\\CryptographyApp\\BackendApi\\BackendApi\\Service\\CryptoService.cs",
+              "RelativeToolTip": "BackendApi\\Service\\CryptoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T02:23:05.811Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

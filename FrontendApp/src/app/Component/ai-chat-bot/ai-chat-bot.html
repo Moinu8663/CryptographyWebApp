@@ -1,0 +1,76 @@
+@if (isOpen()) {
+  <mat-card class="chat-card">
+    <div class="chat-header">
+      <div>
+        <div class="chat-title">
+          <mat-icon>chat</mat-icon>
+          <span>AI Chat</span>
+        </div>
+        <div class="chat-subtitle">Project assistant for crypto, APIs, and JSON</div>
+      </div>
+
+      <div class="header-actions">
+        <button mat-icon-button class="clear-btn" type="button" aria-label="Clear chat" matTooltip="Clear chat" (click)="clearChat()">
+          <mat-icon>delete_sweep</mat-icon>
+        </button>
+
+        <button mat-icon-button class="close-btn" type="button" aria-label="Close AI chat" (click)="closePopup()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      @for (action of quickActions; track action.label) {
+        <button mat-stroked-button type="button" class="quick-action" (click)="useQuickAction(action.prompt)">
+          {{ action.label }}
+        </button>
+      }
+    </div>
+
+    <div class="chat-body" role="log" aria-live="polite">
+      @for (m of messages(); track $index) {
+        <div class="msg" [class.user]="m.role === 'user'" [class.ai]="m.role === 'ai'">
+          <div class="bubble">{{ m.text }}</div>
+        </div>
+      }
+      @if (loading()) {
+        <div class="msg ai">
+          <div class="bubble loading">
+            <mat-progress-spinner diameter="18" mode="indeterminate"></mat-progress-spinner>
+            <span>Thinking...</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="chat-footer">
+      <mat-form-field class="prompt-field" appearance="outline">
+        <input matInput
+               [value]="prompt()"
+               (input)="prompt.set(($any($event.target)).value)"
+               (keydown.enter)="send()"
+               placeholder="Enter prompt" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="send-btn" (click)="send()" [disabled]="loading() || !prompt().trim()">
+        <mat-icon>send</mat-icon>
+        <span>Send</span>
+      </button>
+    </div>
+
+    @if (error()) {
+      <div class="error">{{ error() }}</div>
+    }
+  </mat-card>
+}
+
+<button
+  mat-fab
+  color="primary"
+  class="chat-toggle"
+  type="button"
+  [attr.aria-label]="isOpen() ? 'Close AI chat' : 'Open AI chat'"
+  (click)="togglePopup()">
+  <mat-icon>{{ isOpen() ? 'close' : 'smart_toy' }}</mat-icon>
+</button>

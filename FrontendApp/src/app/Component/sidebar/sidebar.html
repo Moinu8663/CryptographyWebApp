@@ -1,0 +1,34 @@
+<aside class="sidebar" [class.collapsed]="collapsed()">
+
+  <!-- Brand -->
+  <div class="brand">
+    <div class="brand-logo">
+      <mat-icon>lock</mat-icon>
+    </div>
+    @if (!collapsed()) {
+      <span class="brand-name">VaultMind</span>
+    }
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    @for (item of navItems; track item.route) {
+      <a class="nav-item"
+         [routerLink]="item.route"
+         routerLinkActive="active"
+         [matTooltip]="collapsed() ? item.label : ''"
+         matTooltipPosition="right">
+        <mat-icon>{{ item.icon }}</mat-icon>
+        @if (!collapsed()) {
+          <span>{{ item.label }}</span>
+        }
+      </a>
+    }
+  </nav>
+
+  <!-- Toggle -->
+  <button class="toggle-btn" (click)="toggle()" [matTooltip]="collapsed() ? 'Expand' : 'Collapse'" matTooltipPosition="right">
+    <mat-icon>{{ collapsed() ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+  </button>
+
+</aside>

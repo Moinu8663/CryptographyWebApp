@@ -1,0 +1,75 @@
+<div class="page">
+  <div class="card">
+
+    <!-- Header -->
+    <div class="card-header">
+      <div class="logo">
+        <mat-icon>data_object</mat-icon>
+      </div>
+      <div>
+        <h1>JSON Formatter</h1>
+        <p>Format, validate &amp; minify JSON</p>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <button mat-stroked-button (click)="format()" [disabled]="!input()">
+        <mat-icon>auto_fix_high</mat-icon> Format
+      </button>
+      <button mat-stroked-button (click)="minify()" [disabled]="!input()">
+        <mat-icon>compress</mat-icon> Minify
+      </button>
+      <button mat-stroked-button (click)="clear()">
+        <mat-icon>clear_all</mat-icon> Clear
+      </button>
+      <button mat-flat-button class="copy-btn" (click)="copy()" [disabled]="!output()" matTooltip="Copy output">
+        <mat-icon>content_copy</mat-icon> Copy
+      </button>
+    </div>
+
+    <!-- Error -->
+    @if (error()) {
+      <div class="error-banner">
+        <mat-icon>error_outline</mat-icon>
+        <span>{{ error() }}</span>
+      </div>
+    }
+
+    <!-- Editor Row -->
+    <div class="row">
+
+      <!-- Input -->
+      <div class="panel">
+        <div class="panel-label">Input</div>
+        <textarea class="editor"
+                  [ngModel]="input()" (ngModelChange)="input.set($event)"
+                  [ngModelOptions]="{standalone: true}"
+                  (input)="autoResize($event)"
+                  placeholder="Paste your JSON here..."></textarea>
+      </div>
+
+      <!-- Divider -->
+      <div class="col-divider">
+        <div class="divider-line"></div>
+        <mat-icon class="divider-icon">arrow_forward</mat-icon>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Output -->
+      <div class="panel">
+        <div class="panel-label">Output</div>
+        @if (output()) {
+          <pre class="editor output">{{ output() }}</pre>
+        } @else {
+          <div class="editor empty-state">
+            <mat-icon>data_object</mat-icon>
+            <span>Formatted output will appear here</span>
+          </div>
+        }
+      </div>
+
+    </div>
+
+  </div>
+</div>
