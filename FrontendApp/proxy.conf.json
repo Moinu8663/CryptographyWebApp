@@ -1,6 +1,7 @@
 {
   "/backend-api/**": {
-    "target": "https://localhost:7253",
+    // "target": "https://localhost:7253",
+    "target": "cryptographyapi-fxghd4fqdhdcdwf9.centralindia-01.azurewebsites.net",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
